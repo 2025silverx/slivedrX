@@ -23,7 +23,10 @@ async function validateForm(event) {
             console.log("Result:", result);
 
             if (result.success) {
-                window.location.href = "index.html";
+                console.log("Login successful, redirecting...");
+                setTimeout(() => {
+                    window.location.href = "index2.html";
+                }, 100);
             } else {
                 alert(`Login Failed: ${result.message || 'Invalid credentials'}`);
             }
