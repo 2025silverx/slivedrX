@@ -20,7 +20,6 @@ async function validateForm(event) {
             const result = await response.json();
             console.log("Result:", result);
 
-            console.log("Result1:", result.JSON.Email);
 
             if (result.status) {
                 console.log("Login successful, redirecting...");
