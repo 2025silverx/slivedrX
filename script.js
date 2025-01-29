@@ -21,7 +21,7 @@ async function validateForm(event) {
 
             console.log("Result:", result);
 
-            if (result.body['status'])  {
+            if (result.status)  {
                 console.log("Login successful, redirecting...");
                 // Redirect to the new page here. For this example, we're just going to reload the current page.
                    
