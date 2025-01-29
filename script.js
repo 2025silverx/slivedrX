@@ -1,6 +1,5 @@
 async function validateForm(event) {
     event.preventDefault();
-    console.log("Form submitted");
     
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -22,11 +21,13 @@ async function validateForm(event) {
 
             console.log("Result:", result);
 
-            if (result.success) {
+            if (result.body['status'])  {
                 console.log("Login successful, redirecting...");
-                setTimeout(() => {
-                    window.location.href = "index2.html";
-                }, 100);
+                // Redirect to the new page here. For this example, we're just going to reload the current page.
+                   
+                
+                window.location.href = "index.html";
+             
             } else {
                 alert(`Login Failed: ${result.message || 'Invalid credentials'}`);
             }
