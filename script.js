@@ -21,14 +21,13 @@ async function validateForm(event) {
 
             console.log("Result:", result);
 
-            if (result.status)  {
+            if (result['success']) {
                 console.log("Login successful, redirecting...");
-                // Redirect to the new page here. For this example, we're just going to reload the current page.
-                   
-                
-                window.location.href = "index.html";
-             
-            } else {
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 100); // 500ms delay
+            }
+            else {
                 alert(`Login Failed: ${result.message || 'Invalid credentials'}`);
             }
         } catch (error) {
