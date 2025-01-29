@@ -20,6 +20,8 @@ async function validateForm(event) {
 
             const result = await response.json();
 
+            console.log("Result:", result);
+
             if (result.success) {
                 window.location.href = "index.html";
             } else {
