@@ -21,13 +21,14 @@ async function validateForm(event) {
 
             console.log("Result:", result);
 
-            if (result['status']) {
+            if (result.status) {
                 console.log("Login successful, redirecting...");
                 setTimeout(() => {
                     window.location.href = "index.html";
                 }, 100); // 500ms delay
             }
             else {
+                console.error("Login failed:", result.message);
                 alert(`Login Failed: ${result.message || 'Invalid credentials'}`);
             }
         } catch (error) {
