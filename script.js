@@ -21,7 +21,7 @@ async function validateForm(event) {
 
             console.log("Result:", result);
 
-            if (result['success']) {
+            if (result['status']) {
                 console.log("Login successful, redirecting...");
                 setTimeout(() => {
                     window.location.href = "index.html";
