@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analytics & Reports</title>
+    <link rel="stylesheet" href="style5.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="index3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <div class="main-content">
+        <h1>Financial Analytics & Reports</h1>
+
+        <!-- Key Performance Indicators (KPIs) -->
+        <div class="kpi-section">
+            <div class="kpi-card">
+                <h3>Total Funds</h3>
+                <p>$2,500,000</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Active Users</h3>
+                <p>1,200</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Profits</h3>
+                <p>$500,000</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Transaction Volume</h3>
+                <p>$1,000,000</p>
+            </div>
+        </div>
+
+        <!-- Data Trends Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>Revenue Growth (Last 12 Months)</h2>
+                <canvas id="revenueGrowthChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Transaction Trends (Last 12 Months)</h2>
+                <canvas id="transactionTrendsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script5.js"></script>
+</body>
+</html>

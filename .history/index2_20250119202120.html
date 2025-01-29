@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Management - Admin Panel</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Transaction Management</h1>
+        <div class="filters">
+            <label>Date: </label>
+            <input type="date" id="dateFilter">
+            <label>Start Date: </label>
+            <input type="date" id="startDateFilter">
+            <label>End Date: </label>
+            <input type="date" id="endDateFilter">
+            <label>Transaction Type: </label>
+            <select id="typeFilter">
+                <option value="all">All</option>
+                <option value="deposit">Deposit</option>
+                <option value="withdrawal">Withdrawal</option>
+            </select>
+            <label>Status: </label>
+            <select id="statusFilter">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTable">
+                <tr class="pending">
+                    <td>$500</td>
+                    <td>2025-01-01</td>
+                    <td>John Doe</td>
+                    <td>Deposit</td>
+                    <td>Pending</td>
+                </tr>
+                <tr class="completed">
+                    <td>$1500</td>
+                    <td>2025-01-02</td>
+                    <td>Jane Smith</td>
+                    <td>Withdrawal</td>
+                    <td>Completed</td>
+                </tr>
+                <tr class="failed">
+                    <td>$300</td>
+                    <td>2025-01-03</td>
+                    <td>Sam Wilson</td>
+                    <td>Deposit</td>
+                    <td>Failed</td>
+                </tr>
+                <tr class="pending">
+                    <td>$800</td>
+                    <td>2025-01-04</td>
+                    <td>Mike Johnson</td>
+                    <td>Deposit</td>
+                    <td>Pending</td>
+                </tr>
+                <tr class="completed">
+                    <td>$2000</td>
+                    <td>2025-01-05</td>
+                    <td>Emily Davis</td>
+                    <td>Withdrawal</td>
+                    <td>Completed</td>
+                </tr>
+                <tr class="failed">
+                    <td>$1200</td>
+                    <td>2025-01-06</td>
+                    <td>David Lee</td>
+                    <td>Deposit</td>
+                    <td>Failed</td>
+                </tr>
+                <tr class="completed">
+                    <td>$450</td>
+                    <td>2025-01-07</td>
+                    <td>Amy Brown</td>
+                    <td>Withdrawal</td>
+                    <td>Completed</td>
+                </tr>
+                <tr class="pending">
+                    <td>$1000</td>
+                    <td>2025-01-08</td>
+                    <td>Chris Green</td>
+                    <td>Deposit</td>
+                    <td>Pending</td>
+                </tr>
+                <tr class="completed">
+                    <td>$3500</td>
+                    <td>2025-01-09</td>
+                    <td>Sarah White</td>
+                    <td>Withdrawal</td>
+                    <td>Completed</td>
+                </tr>
+                <tr class="failed">
+                    <td>$150</td>
+                    <td>2025-01-10</td>
+                    <td>Robert Black</td>
+                    <td>Deposit</td>
+                    <td>Failed</td>
+                </tr>
+                <tr class="completed">
+                    <td>$5000</td>
+                    <td>2025-01-11</td>
+                    <td>Jessica Blue</td>
+                    <td>Withdrawal</td>
+                    <td>Completed</td>
+                </tr>
+                <tr class="pending">
+                    <td>$250</td>
+                    <td>2025-01-12</td>
+                    <td>Matthew Gray</td>
+                    <td>Deposit</td>
+                    <td>Pending</td>
+                </tr>
+                <tr class="failed">
+                    <td>$1800</td>
+                    <td>2025-01-13</td>
+                    <td>Olivia Red</td>
+                    <td>Withdrawal</td>
+                    <td>Failed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

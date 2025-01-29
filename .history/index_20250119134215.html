@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Dashboard</h1>
+        <button onclick="addUser()" class="add-user-btn">Add User</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>••••••••</td>
+                    <td>$1500</td>
+                    <td><button class="status-btn active" onclick="toggleStatus(this)">Active</button></td>
+                    <td>Verified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser(1)">View</button>
+                        <button class="action-btn edit" onclick="editUser(1)">Edit</button>
+                        <button class="action-btn delete" onclick="deleteUser(1)">Delete</button>
+                        <button class="action-btn show-password" onclick="showPassword(this, 'password1')">Show Password</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>••••••••</td>
+                    <td>$2200</td>
+                    <td><button class="status-btn inactive" onclick="toggleStatus(this)">Inactive</button></td>
+                    <td>Unverified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser(2)">View</button>
+                        <button class="action-btn edit" onclick="editUser(2)">Edit</button>
+                        <button class="action-btn delete" onclick="deleteUser(2)">Delete</button>
+                        <button class="action-btn show-password" onclick="showPassword(this, 'password2')">Show Password</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Add your JavaScript logic here
+    </script>
+</body>
+</html>
+
+
+    <script>
+        function addUser() {
+            document.getElementById('add-form-container').style.display = 'block';
+        }
+
+        function viewUser(id) {
+            alert(`Viewing details for User ID: ${id}`);
+        }
+
+        function editUser(id) {
+            alert(`Editing details for User ID: ${id}`);
+        }
+
+        function deleteUser(id) {
+            const confirmDelete = confirm(`Are you sure you want to delete User ID: ${id}?`);
+            if (confirmDelete) {
+                alert(`User ID: ${id} deleted.`);
+            }
+        }
+
+        function toggleStatus(button) {
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                button.textContent = 'Inactive';
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                button.textContent = 'Active';
+            }
+        }
+
+        function showPassword(button, passwordId) {
+            const passwordCell = button.closest('tr').querySelector('td:nth-child(4)');
+            if (button.textContent === 'Show Password') {
+                passwordCell.textContent = 'examplePassword';
+                button.textContent = 'Hide Password';
+            } else {
+                passwordCell.textContent = '••••••••';
+                button.textContent = 'Show Password';
+            }
+        }
+    </script>
+</body>
+</html>

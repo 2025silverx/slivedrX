@@ -1,0 +1,236 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f9fc; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+h1, h2 {
+    color: #1E2A47; /* Dark blue for headers */
+}
+
+/* Sidebar Styles */
+#sidebar-container {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #1E2A47; /* Bluish background */
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-link:hover {
+    background-color: #3C4A78; /* Lighter bluish hover effect */
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 250px; /* Sidebar width */
+    padding: 20px;
+    flex: 1;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+}
+
+/* Settings Section Styles */
+.settings-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.settings-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+/* Commission Table Styles */
+.commission-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.commission-table th,
+.commission-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.commission-table th {
+    background-color: #E4F1FE; /* Light blue background for header */
+    color: #1E2A47; /* Dark blue for text */
+}
+
+.commission-table td {
+    background-color: #fff;
+    color: #555;
+}
+
+.commission-table tr:hover {
+    background-color: #f1f9fc; /* Light hover effect */
+}
+
+/* Percentage Label Colors */
+.commission-table td span {
+    font-weight: bold;
+}
+
+.commission-table td span.low {
+    color: #FF5722; /* Red for lower percentages */
+}
+
+.commission-table td span.medium {
+    color: #FFC107; /* Amber for medium percentages */
+}
+
+.commission-table td span.high {
+    color: #4CAF50; /* Green for higher percentages */
+}
+
+/* Status Button Styles */
+.status-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.status-btn.active {
+    background-color: #4c80a3; /* Bluish active status */
+}
+
+.status-btn.inactive {
+    background-color: #a0c4d7; /* Light bluish for inactive */
+}
+
+/* Action Button Styles */
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.action-btn.view {
+    background-color: #457b9d; /* Bluish for view button */
+    color: white;
+}
+
+.action-btn.edit {
+    background-color: #5fa6d3; /* Lighter bluish for edit button */
+    color: white;
+}
+
+.action-btn.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.action-btn.show-password {
+    background-color: #17a2b8;
+    color: white;
+}
+
+/* Commission Table Progress Bar Styles */
+.progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ddd; /* Gray background for progress bar */
+}
+
+.progress-bar.high {
+    background-color: #4CAF50; /* Green for higher commissions */
+}
+
+.progress-bar.medium {
+    background-color: #FFC107; /* Amber for medium commissions */
+}
+
+.progress-bar.low {
+    background-color: #FF5722; /* Red for lower commissions */
+}

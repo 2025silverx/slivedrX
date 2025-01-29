@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Dashboard</h1>
+        <button onclick="addUser()" class="add-user-btn">Add User</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>••••••••</td>
+                    <td>$1500</td>
+                    <td><button class="status-btn active" onclick="toggleStatus(this)">Active</button></td>
+                    <td>Verified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser(1)">View</button>
+                        <button class="action-btn edit" onclick="editUser(1)">Edit</button>
+                        <button class="action-btn delete" onclick="deleteUser(1)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Edit User Form -->
+        <div id="edit-form-container" class="edit-form">
+            <h2>Edit User</h2>
+            <form id="edit-form">
+                <input type="text" id="edit-name" placeholder="Name" required>
+                <input type="email" id="edit-email" placeholder="Email" required>
+                <input type="text" id="edit-password" placeholder="Password" required>
+                <input type="number" id="edit-balance" placeholder="Balance" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function addUser() {
+            alert('Add User button clicked.');
+        }
+
+        function editUser(id) {
+            const name = document.getElementById('edit-name');
+            const email = document.getElementById('edit-email');
+            const password = document.getElementById('edit-password');
+            const balance = document.getElementById('edit-balance');
+
+            // Mock data for simplicity
+            name.value = `User ${id}`;
+            email.value = `user${id}@example.com`;
+            password.value = 'examplePassword'; // Display the actual password
+            balance.value = 1500;
+
+            // Show the form
+            document.getElementById('edit-form-container').style.display = 'block';
+        }
+
+        function toggleStatus(button) {
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                button.textContent = 'Inactive';
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                button.textContent = 'Active';
+            }
+        }
+
+        document.getElementById('edit-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Changes saved!');
+            document.getElementById('edit-form-container').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Settings</h1>
+
+        <!-- Profile Settings Section -->
+        <div class="settings-section">
+            <h2>Profile Settings</h2>
+            <form class="settings-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" value="admin123" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="admin@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" value="+1234567890" required>
+                </div>
+                <button type="submit" class="btn">Save Profile</button>
+            </form>
+        </div>
+
+   <!-- Commission Structure Table -->
+   <div class="settings-section">
+    <h2>Commission Structure</h2>
+    <table class="commission-table">
+        <thead>
+            <tr>
+                <th>Level</th>
+                <th>Username</th>
+                <th>Commission</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Level 1</td>
+                <td><span class="username">admin123</span></td>
+                <td><div class="progress-bar high" style="width: 50%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 2</td>
+                <td><span class="username">user456</span></td>
+                <td><div class="progress-bar high" style="width: 40%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 3</td>
+                <td><span class="username">user789</span></td>
+                <td><div class="progress-bar medium" style="width: 30%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 4</td>
+                <td><span class="username">admin321</span></td>
+                <td><div class="progress-bar medium" style="width: 25%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 5</td>
+                <td><span class="username">user234</span></td>
+                <td><div class="progress-bar medium" style="width: 20%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 6</td>
+                <td><span class="username">user987</span></td>
+                <td><div class="progress-bar medium" style="width: 18%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 7</td>
+                <td><span class="username">user654</span></td>
+                <td><div class="progress-bar medium" style="width: 16%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 8</td>
+                <td><span class="username">user333</span></td>
+                <td><div class="progress-bar low" style="width: 15%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 9</td>
+                <td><span class="username">user888</span></td>
+                <td><div class="progress-bar low" style="width: 12%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Level 10</td>
+                <td><span class="username">user555</span></td>
+                <td><div class="progress-bar low" style="width: 10%;"></div></td>
+                <td><button class="edit-btn">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Change Password Section -->
+<div class="settings-section">
+    <h2>Change Password</h2>
+    <form class="settings-form">
+        <div class="form-group">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="current-password" required>
+        </div>
+        <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="new-password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="btn">Change Password</button>
+    </form>
+</div>
+
+<!-- Notification Settings Section -->
+<div class="settings-section">
+    <h2>Notification Settings</h2>
+    <form class="settings-form">
+        <div class="form-group">
+            <label for="email-notifications">Email Notifications</label>
+            <input type="checkbox" id="email-notifications" name="email-notifications" checked>
+        </div>
+        <div class="form-group">
+            <label for="sms-notifications">SMS Notifications</label>
+            <input type="checkbox" id="sms-notifications" name="sms-notifications">
+        </div>
+        <div class="form-group">
+            <label for="push-notifications">Push Notifications</label>
+            <input type="checkbox" id="push-notifications" name="push-notifications" checked>
+        </div>
+        <button type="submit" class="btn">Save Notifications</button>
+    </form>
+</div>
+</div>
+
+<script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+        <ul class="sidebar-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>$1500</td>
+                    <td>Active</td>
+                    <td>Verified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser()">View</button>
+                        <button class="action-btn block" onclick="blockUser()">Block</button>
+                        <button class="action-btn edit" onclick="editUser()">Edit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>$2200</td>
+                    <td>Inactive</td>
+                    <td>Unverified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser()">View</button>
+                        <button class="action-btn block" onclick="blockUser()">Block</button>
+                        <button class="action-btn edit" onclick="editUser()">Edit</button>
+                    </td>
+                </tr>
+                <!-- Additional rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

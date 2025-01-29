@@ -1,0 +1,177 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f5f7fa;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Remove any margin or padding at the side */
+    margin-right: 0;
+}
+
+/* Sidebar heading */
+.sidebar h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-links {
+    list-style: none;
+}
+
+.sidebar-links li {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    color: #f0f0f0; /* Light gray on hover */
+}
+
+.sidebar-links a:active {
+    color: #ff6347; /* Red color on click */
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Referral statistics styles */
+.referral-statistics {
+    margin-bottom: 30px;
+}
+
+.referral-statistics h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-box {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-box h3 {
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Referral tree/network graph styles */
+.referral-tree {
+    margin-bottom: 30px;
+}
+
+.network-graph {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.network-graph p {
+    font-size: 18px;
+    color: #007bff;
+}
+
+/* Graph containers */
+.graphs {
+    margin-top: 30px;
+}
+
+.graph-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.graph-box {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.graph-box h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .graph-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .graph-box {
+        width: 100%;
+    }
+}

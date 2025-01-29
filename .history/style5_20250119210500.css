@@ -1,0 +1,296 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f5f7fa;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Remove any margin or padding at the side */
+    margin-right: 0;
+}
+
+/* Sidebar heading */
+.sidebar h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-links {
+    list-style: none;
+}
+
+.sidebar-links li {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    color: #f0f0f0; /* Light gray on hover */
+}
+
+.sidebar-links a:active {
+    color: #ff6347; /* Red color on click */
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* KPI section styles */
+.kpi-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.kpi-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: center;
+}
+
+.kpi-card h3 {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.kpi-card p {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Chart section styles */
+.charts-section {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.chart-container {
+    width: 48%;
+    margin-top: 20px;
+}
+
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .kpi-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .kpi-card {
+        width: 100%;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+}
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #007bff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #007bff;
+    color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar-link {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    margin: 5px 0;
+    transition: background 0.3s;
+}
+
+.sidebar-link:hover {
+    background: #007bff;
+    border-left: 5px solid #e67e22;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.kpi-section {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kpi-card h3 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.kpi-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Chart Section */
+.charts-section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tables */
+.summary-table, .asd-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-table th, .asd-table th {
+    background:#007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.summary-table td, .asd-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-table tr:nth-child(even), .asd-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.summary-table tr:hover, .asd-table tr:hover {
+    background: #f1f1f1;
+}
+
+/* ASD Section */
+.asd-section h2 {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .kpi-section, .charts-section {
+        flex-direction: column;
+    }
+}

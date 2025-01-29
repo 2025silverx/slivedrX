@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Sharing and Payout Management</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul class="sidebar-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Profit Sharing</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Profit Sharing and Payout Management</h1>
+
+        <!-- Tabs for different sections -->
+        <div class="tabs">
+            <button class="tab-button active" id="pending-tab">Pending Payouts</button>
+            <button class="tab-button" id="approved-tab">Approved Payouts</button>
+            <button class="tab-button" id="all-tab">All Transactions</button>
+        </div>
+
+        <!-- Pending Payouts Tab -->
+        <div class="tab-content" id="pending-payouts">
+            <h2>Pending Payouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Direct Earnings</th>
+                        <th>Referral Commissions</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>$1500</td>
+                        <td>$300</td>
+                        <td>
+                            <div class="progress-bar pending">
+                                <span class="status-text">Pending</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>$2000</td>
+                        <td>$400</td>
+                        <td>
+                            <div class="progress-bar processing">
+                                <span class="status-text">Processing</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sam Wilson</td>
+                        <td>$1200</td>
+                        <td>$250</td>
+                        <td>
+                            <div class="progress-bar completed">
+                                <span class="status-text">Completed</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Approved Payouts Tab -->
+        <div class="tab-content" id="approved-payouts" style="display:none;">
+            <h2>Approved Payouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Payout Amount</th>
+                        <th>Transaction Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>$2400</td>
+                        <td>2025-01-01</td>
+                        <td><span class="status-text green">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sam Wilson</td>
+                        <td>$1450</td>
+                        <td>2025-01-02</td>
+                        <td><span class="status-text green">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- All Transactions Tab -->
+        <div class="tab-content" id="all-transactions" style="display:none;">
+            <h2>All Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Deposit</td>
+                        <td>$1500</td>
+                        <td><span class="status-text blue">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Withdrawal</td>
+                        <td>$2400</td>
+                        <td><span class="status-text green">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sam Wilson</td>
+                        <td>Referral Commission</td>
+                        <td>$250</td>
+                        <td><span class="status-text yellow">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script4.js"></script>
+</body>
+</html>

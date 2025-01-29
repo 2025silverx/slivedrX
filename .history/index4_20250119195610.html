@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Sharing and Payout Management</title>
+    <link rel="stylesheet" href="style4.css">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .modal-header button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link">Transactions</a></li>
+                <li><a href="index3.html" class="sidebar-link">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Profit Sharing and Payout Management</h1>
+
+        <!-- Add Profit Button -->
+        <button class="add-profit-btn" onclick="openCalculator()">Add Profit</button>
+
+        <!-- Pending Payouts Tab -->
+        <div class="tab-content" id="pending-payouts">
+            <h2>Pending Payouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Direct Earnings</th>
+                        <th>Total Earnings</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="user-row-1">
+                        <td>John Doe</td>
+                        <td id="direct-earnings-1">10000</td>
+                        <td id="total-earnings-1">10000</td>
+                        <td>
+                            <div class="progress-bar pending">
+                                <span class="status-text">Pending</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calculator-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Profit</h2>
+                <button onclick="closeCalculator()">✖</button>
+            </div>
+            <form id="profit-calculator-form" onsubmit="applyProfit(event)">
+                <div class="form-group">
+                    <label for="percentage">Profit Percentage</label>
+                    <input type="number" id="percentage" name="percentage" placeholder="Enter percentage (e.g., 30)" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" onclick="closeCalculator()">Cancel</button>
+                    <button type="submit" class="btn-save">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Open calculator modal
+        function openCalculator() {
+            document.getElementById('calculator-modal').style.display = 'block';
+        }
+
+        // Close calculator modal
+        function closeCalculator() {
+            document.getElementById('calculator-modal').style.display = 'none';
+        }
+
+        // Apply profit to the user's account
+        function applyProfit(event) {
+            event.preventDefault();
+            const percentage = parseFloat(document.getElementById('percentage').value);
+            if (!percentage || percentage <= 0) {
+                alert("Please enter a valid percentage.");
+                return;
+            }
+
+            const directEarnings = parseFloat(document.getElementById('direct-earnings-1').textContent);
+            const increment = (directEarnings * percentage) / 100;
+            const totalEarnings = directEarnings + increment;
+
+            document.getElementById('total-earnings-1').textContent = totalEarnings.toFixed(2);
+
+            alert(`Profit of ${percentage}% added! New total: $${totalEarnings.toFixed(2)}`);
+            closeCalculator();
+        }
+    </script>
+</body>
+</html>

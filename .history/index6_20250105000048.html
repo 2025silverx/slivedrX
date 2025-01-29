@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analytics & Reports</title>
+    <link rel="stylesheet" href="style6.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul class="sidebar-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Financial Analytics & Reports</h1>
+
+        <!-- KPIs Section -->
+        <div class="kpi-section">
+            <div class="kpi-card">
+                <h3>Total Funds</h3>
+                <p>$2,500,000</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Active Users</h3>
+                <p>1,200</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Profits</h3>
+                <p>$500,000</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Transaction Volume</h3>
+                <p>$1,000,000</p>
+            </div>
+        </div>
+
+        <!-- Data Trends Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>Revenue Growth (Last 12 Months)</h2>
+                <canvas id="revenueGrowthChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Transaction Trends (Last 12 Months)</h2>
+                <canvas id="transactionTrendsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

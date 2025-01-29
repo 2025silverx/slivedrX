@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Sharing and Payout Management</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Profit Sharing and Payout Management</h1>
+
+        <!-- Add Profit Button -->
+        <button class="add-profit-btn" onclick="openCalculator()">Add Profit</button>
+
+        <!-- Tabs for different sections -->
+        <div class="tabs">
+            <button class="tab-button active" id="pending-tab">Pending Payouts</button>
+            <button class="tab-button" id="approved-tab">Approved Payouts</button>
+            <button class="tab-button" id="all-tab">All Transactions</button>
+        </div>
+
+        <!-- Pending Payouts Tab -->
+        <div class="tab-content" id="pending-payouts">
+            <h2>Pending Payouts</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Direct Earnings</th>
+                        <th>Referral Commissions</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>$1500</td>
+                        <td>$300</td>
+                        <td>
+                            <div class="progress-bar pending">
+                                <span class="status-text">Pending</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>$2000</td>
+                        <td>$400</td>
+                        <td>
+                            <div class="progress-bar processing">
+                                <span class="status-text">Processing</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sam Wilson</td>
+                        <td>$1200</td>
+                        <td>$250</td>
+                        <td>
+                            <div class="progress-bar completed">
+                                <span class="status-text">Completed</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Calculator Modal -->
+        <div id="calculator-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Add Profit</h2>
+                <form id="profit-calculator-form" onsubmit="calculateProfit(event)">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commission">Commission</label>
+                        <input type="number" id="commission" name="commission" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="percentage">Percentage</label>
+                        <input type="text" id="percentage" name="percentage" readonly>
+                    </div>
+                    <button type="submit" class="btn">Calculate & Save</button>
+                    <button type="button" class="btn" onclick="closeCalculator()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open the calculator modal
+        function openCalculator() {
+            document.getElementById('calculator-modal').style.display = 'block';
+        }
+
+        // Close the calculator modal
+        function closeCalculator() {
+            document.getElementById('calculator-modal').style.display = 'none';
+        }
+
+        // Calculate profit and update the user's amount column
+        function calculateProfit(event) {
+            event.preventDefault();
+            const price = parseFloat(document.getElementById('price').value);
+            const commission = parseFloat(document.getElementById('commission').value);
+
+            if (price && commission) {
+                const percentage = ((commission / price) * 100).toFixed(2) + '%';
+                document.getElementById('percentage').value = percentage;
+
+                // For demonstration, log the result (replace with your logic to update the table)
+                console.log(`Price: $${price}, Commission: $${commission}, Percentage: ${percentage}`);
+                alert('Profit calculated and saved!');
+                closeCalculator();
+            } else {
+                alert('Please fill out all fields!');
+            }
+        }
+    </script>
+</body>
+</html>

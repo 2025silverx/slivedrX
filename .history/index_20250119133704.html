@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Users</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+
+        #sidebar-container {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background-color: #2f3640;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar-logo {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar-link {
+            text-decoration: none;
+            color: #a6b1c1;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .sidebar-link:hover {
+            color: #fff;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .add-user-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .add-user-btn:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2f3640;
+            color: white;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        .status-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .status-btn.active {
+            background-color: #28a745;
+        }
+
+        .status-btn.inactive {
+            background-color: #dc3545;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .action-btn.view {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .action-btn.view:hover {
+            background-color: #0056b3;
+        }
+
+        .action-btn.edit {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background-color: #e0a800;
+        }
+
+        .action-btn.delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .action-btn.delete:hover {
+            background-color: #c82333;
+        }
+
+        .action-btn.show-password {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .action-btn.show-password:hover {
+            background-color: #138496;
+        }
+
+        .edit-form, .add-form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .edit-form input, .add-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .edit-form button, .add-form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .edit-form button:hover, .add-form button:hover {
+            background-color: #218838;
+        }
+
+        @media screen and (max-width: 768px) {
+            #sidebar-container {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            .add-user-btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .edit-form, .add-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <button onclick="showAddUserForm()" class="add-user-btn">Add User</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>••••••••</td>
+                    <td>$1500</td>
+                    <td><button class="status-btn active" onclick="toggleStatus(this)">Active</button></td>
+                    <td>Verified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser(1)">View</button>
+                        <button class="action-btn edit" onclick="editUser(1)">Edit</button>
+                        <button class="action-btn delete" onclick="deleteUser(1)">Delete</button>
+                        <button class="action-btn show-password" onclick="showPassword(this, 'password1')">Show Password</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>••••••••</td>
+                    <td>$2200</td>
+                    <td><button class="status-btn inactive" onclick="toggleStatus(this)">Inactive</button></td>
+                    <td>Unverified</td>
+                    <td>
+                        <button class="action-btn view" onclick="viewUser(2)">View</button>
+                        <button class="action-btn edit" onclick="editUser(2)">Edit</button>
+                        <button class="action-btn delete" onclick="deleteUser(2)">Delete</button>
+                        <button class="action-btn show-password" onclick="showPassword(this, 'password2')">Show Password</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Add User Form -->
+        <div id="add-form-container" class="add-form">
+            <h2>Add User</h2>
+            <form id="add-form">
+                <input type="text" id="add-name" placeholder="Name" required>
+                <input type="email" id="add-email" placeholder="Email" required>
+                <input type="password" id="add-password" placeholder="Password" required>
+                <input type="number" id="add-balance" placeholder="Balance" required>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showAddUserForm() {
+            // Hide the Edit form and show the Add form
+            document.getElementById('edit-form-container').style.display = 'none';
+            document.getElementById('add-form-container').style.display = 'block';
+        }
+
+        function addUser() {
+            // Implement logic to add the user to the system
+            alert('Add User button clicked.');
+        }
+
+        function viewUser(id) {
+            alert(`Viewing details for User ID: ${id}`);
+        }
+
+        function editUser(id) {
+            // Open the edit form and populate it with user data
+            const name = document.getElementById('edit-name');
+            const email = document.getElementById('edit-email');
+            const password = document.getElementById('edit-password');
+            const balance = document.getElementById('edit-balance');
+            
+            // For simplicity, let's assume data is fetched here
+            name.value = `User ${id}`;
+            email.value = `user${id}@example.com`;
+            password.value = '••••••••'; // Add a mechanism to retrieve the actual password
+            balance.value = 1500;
+
+            // Show the form
+            document.getElementById('edit-form-container').style.display = 'block';
+            document.getElementById('add-form-container').style.display = 'none';
+        }
+
+        function deleteUser(id) {
+            const confirmDelete = confirm(`Are you sure you want to delete User ID: ${id}?`);
+            if (confirmDelete) {
+                alert(`User ID: ${id} deleted.`);
+            }
+        }
+
+        function toggleStatus(button) {
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                button.textContent = 'Inactive';
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                button.textContent = 'Active';
+            }
+        }
+
+        function showPassword(button, passwordId) {
+            const password = document.getElementById(passwordId);
+            if (password.type === 'password') {
+                password.type = 'text';
+                button.textContent = 'Hide Password';
+            } else {
+                password.type = 'password';
+                button.textContent = 'Show Password';
+            }
+        }
+    </script>
+</body>
+</html>

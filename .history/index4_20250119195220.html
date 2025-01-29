@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Sharing and Payout Management</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div id="sidebar-container">
+        <div class="sidebar">
+            <img src="images/logo.png" alt="Sidebar Logo" class="sidebar-logo">
+            <ul class="sidebar-links">
+                <li><a href="index.html" class="sidebar-link" data-target="dashboard">Dashboard</a></li>
+                <li><a href="index2.html" class="sidebar-link" data-target="transactions">Transactions</a></li>
+                <li><a href="indesx3.html" class="sidebar-link" data-target="reports">Referral Program</a></li>
+                <li><a href="index4.html" class="sidebar-link" data-target="users">Profit Sharing</a></li>
+                <li><a href="index5.html" class="sidebar-link" data-target="reports">Reports</a></li>
+                <li><a href="setting.html" class="sidebar-link" data-target="settings">Settings</a></li>
+                <li><a href="login.html" class="sidebar-link" data-target="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Profit Sharing and Payout Management</h1>
+
+        <!-- Tabs for different sections -->
+        <div class="tabs">
+            <button class="tab-button active" id="pending-tab">Pending Payouts</button>
+            <button class="tab-button" id="approved-tab">Approved Payouts</button>
+            <button class="tab-button" id="all-tab">All Transactions</button>
+        </div>
+
+        <!-- Pending Payouts Tab -->
+        <div class="tab-content" id="pending-payouts">
+            <h2>Pending Payouts</h2>
+            <button id="add-profit-btn" class="add-profit-btn">Add Profit</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Direct Earnings</th>
+                        <th>Referral Commissions</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-user="John Doe">
+                        <td>John Doe</td>
+                        <td class="direct-earnings" data-amount="1500">$1500</td>
+                        <td>$300</td>
+                        <td>
+                            <div class="progress-bar pending">
+                                <span class="status-text">Pending</span>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                        </td>
+                    </tr>
+                    <tr data-user="Jane Smith">
+                        <td>Jane Smith</td>
+                        <td class="direct-earnings" data-amount="2000">$2000</td>
+                        <td>$400</td>
+                        <td>
+                            <div class="progress-bar processing">
+                                <span class="status-text">Processing</span>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                        </td>
+                    </tr>
+                    <tr data-user="Sam Wilson">
+                        <td>Sam Wilson</td>
+                        <td class="direct-earnings" data-amount="1200">$1200</td>
+                        <td>$250</td>
+                        <td>
+                            <div class="progress-bar completed">
+                                <span class="status-text">Completed</span>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Adding Profit -->
+        <div id="profit-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Add Profit</h2>
+                <label for="profit-percentage">Enter Profit Percentage:</label>
+                <input type="number" id="profit-percentage" placeholder="Enter percentage" />
+                <button id="apply-profit-btn">Apply Profit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       // Open the modal
+const addProfitBtn = document.getElementById('add-profit-btn');
+const profitModal = document.getElementById('profit-modal');
+const closeModalBtn = document.querySelector('.close-btn');
+const applyProfitBtn = document.getElementById('apply-profit-btn');
+const profitPercentageInput = document.getElementById('profit-percentage');
+
+// Event: Open modal
+addProfitBtn.addEventListener('click', () => {
+    profitModal.style.display = 'block'; // Show the modal
+});
+
+// Event: Close modal
+closeModalBtn.addEventListener('click', () => {
+    profitModal.style.display = 'none'; // Hide the modal
+});
+
+// Event: Apply profit to users
+applyProfitBtn.addEventListener('click', () => {
+    const percentage = parseFloat(profitPercentageInput.value);
+    if (isNaN(percentage) || percentage <= 0) {
+        alert('Please enter a valid percentage.');
+        return;
+    }
+
+    // Update earnings for all users
+    const rows = document.querySelectorAll('.direct-earnings');
+    rows.forEach(row => {
+        const currentAmount = parseFloat(row.dataset.amount);
+        const profit = (currentAmount * percentage) / 100;
+        const newAmount = currentAmount + profit;
+
+        // Update data-amount and display value
+        row.dataset.amount = newAmount.toFixed(2);
+        row.textContent = `$${newAmount.toFixed(2)}`;
+    });
+
+    // Close the modal
+    profitModal.style.display = 'none';
+    profitPercentageInput.value = '';
+});
+
+// Close modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+    if (event.target === profitModal) {
+        profitModal.style.display = 'none';
+    }
+});
+<script src="script6.js"></script>
+        
+    </script>
+    <script src="script6.js"></script>
+</body>
+</html>

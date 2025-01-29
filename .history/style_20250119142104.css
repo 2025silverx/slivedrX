@@ -1,0 +1,210 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar styles */
+#sidebar-container {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background-color: #1d3557; /* Bluish background */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-logo {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #a8d0e6; /* Lighter bluish text */
+    font-size: 16px;
+    display: block;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.sidebar-link:hover {
+    color: #fff;
+}
+
+/* Main content styles */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    font-size: 28px;
+    color: #1d3557;
+}
+
+/* Add User Button Styles */
+.add-user-btn {
+    background-color: #457b9d; /* Bluish button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-user-btn:hover {
+    background-color: #1d3557;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1d3557;
+    color: white;
+}
+
+td {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Status button styles */
+.status-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.status-btn.active {
+    background-color: #4c80a3; /* Bluish active status */
+}
+
+.status-btn.inactive {
+    background-color: #a0c4d7; /* Light bluish for inactive */
+}
+
+/* Action button styles */
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.action-btn.view {
+    background-color: #457b9d; /* Bluish for view button */
+    color: white;
+}
+
+.action-btn.edit {
+    background-color: #5fa6d3; /* Lighter bluish for edit button */
+    color: white;
+}
+
+.action-btn.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.action-btn.show-password {
+    background-color: #17a2b8;
+    color: white;
+}
+
+/* Commission Table Styles */
+.commission-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.commission-table th,
+.commission-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.commission-table th {
+    background-color: #1d3557;
+    color: white;
+}
+
+.commission-table td {
+    background-color: #fff;
+    color: #555;
+}
+
+.commission-table tr:hover {
+    background-color: #f1f9fc; /* Light hover effect */
+}
+
+/* Percentage Label Colors */
+.commission-table td span {
+    font-weight: bold;
+}
+
+.commission-table td span.low {
+    color: #457b9d; /* Bluish for lower percentages */
+}
+
+.commission-table td span.medium {
+    color: #5fa6d3; /* Lighter bluish for medium percentages */
+}
+
+.commission-table td span.high {
+    color: #1d3557; /* Dark bluish for higher percentages */
+}
+
+/* Username Styles */
+.commission-table td .username {
+    font-weight: normal;
+    color: #1d3557; /* Dark blue for username */
+}
+
+/* Edit Button Styles */
+.edit-btn {
+    background-color: #457b9d; /* Bluish edit button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #1d3557; /* Dark bluish on hover */
+}
