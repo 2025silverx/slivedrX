@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Management - Admin Panel</title>
     <link rel="stylesheet" href="style2.css">
+
+        <style>
+        /* Popup Styles */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .popup-container .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .popup-container button {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .cancel-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+
 </head>
 <body>
     <div id="sidebar-container">
@@ -22,6 +83,24 @@
         </div>
     </div>
     <div class="main-content">
+
+
+                <button onclick="showAddFundForm()" class="add-user-btn">Add Fund</button>
+
+
+                <!-- Add Fund Popup -->
+        <div id="overlay" class="overlay"></div>
+        <div id="popupForm" class="popup-container">
+            <h3>Add Fund</h3>
+            <input type="email" id="email" placeholder="Enter Email" required>
+            <input type="number" id="amount" placeholder="Enter Amount" required>
+            
+            <div class="btn-group">
+                <button class="submit-btn" onclick="submitForm()">Submit</button>
+                <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+            </div>
+        </div>
+
         <h1>transactions Management</h1>
         <div class="filters">
             <label for="nameFilter">Name: </label>
@@ -156,5 +235,31 @@
     </div>
 
     <script src="script2.js"></script>
+
+
+     <script>
+        function showAddFundForm() {
+            document.getElementById("popupForm").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popupForm").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function submitForm() {
+            let email = document.getElementById("email").value;
+            let amount = document.getElementById("amount").value;
+
+            if (email === "" || amount === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            alert(`Fund added successfully to ${email} with amount $${amount}`);
+            closePopup();
+        }
+    </script>
 </body>
 </html>
