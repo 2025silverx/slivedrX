@@ -20,50 +20,45 @@ h1, h2 {
 
 /* Sidebar Styles */
 /* Sidebar styles */
-.sidebar {
+/* Sidebar Styles */
+#sidebar-container {
+    position: fixed;
     width: 250px;
-    background-color: #007bff;
+    height: 100%;
+    background-color:#007bff; /* Bluish background */
     color: white;
-    padding: 20px;
+    padding-top: 20px;
+}
+
+.sidebar {
     display: flex;
     flex-direction: column;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    margin-right: 0;
+    align-items: center;
 }
 
-/* Sidebar heading */
-.sidebar h2 {
+.sidebar-logo {
+    width: 100px;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* Sidebar links */
 .sidebar-links {
     list-style: none;
+    padding: 0;
 }
 
-.sidebar-links li {
-    margin-bottom: 20px; /* Increased margin for better spacing */
-}
-
-.sidebar-links a {
+.sidebar-link {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    padding: 10px 20px;
     display: block;
-    padding: 10px;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
-.sidebar-links a:hover {
-    color: #f0f0f0; /* Light gray on hover */
-}
-
-.sidebar-links a:active {
-    color: #ff6347; /* Red color on click */
+.sidebar-link:hover {
+    background-color: #3C4A78; /* Lighter bluish hover effect */
 }
 /* Main Content Styles */
 .main-content {
