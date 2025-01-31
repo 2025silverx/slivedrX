@@ -75,21 +75,23 @@ async function fetchUsers() {
 
 // ✅ Populate User Table
 function populateUserTable(users) {
-    const userTable = document.getElementById("userTable");
-    userTable.innerHTML = "";
+    const userTableBody = document.getElementById("userTableBody"); // Target the table body
+    userTableBody.innerHTML = ""; // Clear the table body before adding new rows
 
+    // Iterate over the users array to populate the table
     users.forEach((user, index) => {
         const statusClass = user.active ? "active" : "inactive";
         const statusText = user.active ? "Active" : "Inactive";
         const verificationStatus = user.isBlocked ? "Unverified" : "Verified";
         const balance = user.rewards || 0; 
 
+        // Create a new row for each user
         const row = `
             <tr>
                 <td>${index + 1}</td>
                 <td>${user.Name}</td>
                 <td>${user.Email}</td>
-                <td>${user.Password}</td> 
+                <td>${user.Password}</td>
                 <td>$${balance}</td>
                 <td><button class="status-btn ${statusClass}" onclick="toggleStatus(this, '${user._id}')">${statusText}</button></td>
                 <td>${verificationStatus}</td>
@@ -100,9 +102,12 @@ function populateUserTable(users) {
                 </td>
             </tr>
         `;
-        userTable.innerHTML += row;
+        
+        // Append the row to the table body
+        userTableBody.innerHTML += row;
     });
 }
+
 
 // ✅ Toggle User Status
 async function toggleStatus(button, userId) {
@@ -166,6 +171,85 @@ async function deleteUser(userId) {
         }
     }
 }
+
+// Function to show the "Add User" form and hide the user listing
+function showAddUserForm() {
+    // Hide the user table
+    document.getElementById("userTable").style.display = "none"; 
+    // Show the Add User form
+    document.getElementById("add-user-form-container").style.display = "block";
+}
+
+// Function to close the "Add User" form and show the user listing again
+function closeAddUserForm() {
+    // Hide the Add User form
+    document.getElementById("add-user-form-container").style.display = "none";
+    // Show the user table
+    document.getElementById("userTable").style.display = "table"; 
+}
+
+// Function to handle form submission for adding a user
+async function addUser(event) {
+    event.preventDefault(); // Prevents the form from submitting the default way
+
+    const name = document.getElementById("user-name").value;
+    const email = document.getElementById("user-email").value;
+    const password = document.getElementById("user-password").value;
+
+    if (!name || !email || !password) {
+        alert("All fields are required!");
+        return;
+    }
+
+    const token = localStorage.getItem("authToken");
+
+    try {
+        const response = await fetch("https://wallet-seven-fawn.vercel.app/api/v1/admin/add/user", {
+            method: "POST",
+            headers: {
+                "token": token,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                Name: name,
+                Email: email,
+                Password: password,
+                referralCode: "OTUAL",
+                rewards: 0,
+                role: "user",
+                active: true
+            })
+        });
+
+        const result = await response.json();
+
+        if (result.status) {
+            alert("User Added Successfully!");
+            fetchUsers(); // Refresh the user list
+            closeAddUserForm(); // Close the form after submission
+        } else {
+            alert("Failed to add user: " + (result.message || "Unknown error"));
+        }
+    } catch (error) {
+        console.error("Error adding user:", error);
+        alert("An error occurred while adding the user.");
+    }
+}
+
+
+
+// Function to show the "Add User" form and hide the user listing
+function showAddUserForm() {
+    document.getElementById("add-user-form-container").style.display = "block";
+    document.getElementById("userTable").style.display = "none"; // Hide user table
+}
+
+// Function to close the "Add User" form and show the user listing again
+function closeAddUserForm() {
+    document.getElementById("add-user-form-container").style.display = "none";
+    document.getElementById("userTable").style.display = "table"; // Show user table
+}
+
 
 // ✅ Fetch Users on Page Load
 document.addEventListener("DOMContentLoaded", fetchUsers);
