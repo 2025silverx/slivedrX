@@ -128,7 +128,7 @@ td {
 }
 
 .action-btn.edit {
-    background-color: #ffc107;
+    background-color: gray;
     color: white;
 }
 
@@ -163,8 +163,9 @@ td {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 600px;
     margin: 0 auto;
+    height: auto;
 }
 
 .add-user-form h2 {
@@ -175,7 +176,7 @@ td {
 .add-user-form input {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
