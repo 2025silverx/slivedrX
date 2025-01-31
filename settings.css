@@ -141,3 +141,21 @@ td {
     background-color: #007bff;
     color: white;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f9fc; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+h1, h2 {
+    color: #1E2A47; /* Dark blue for headers */
+}
