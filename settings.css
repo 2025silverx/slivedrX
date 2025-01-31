@@ -30,7 +30,6 @@ h1, h2 {
     position: sticky;
     top: 0;
     height: 100vh;
-    /* Remove any margin or padding at the side */
     margin-right: 0;
 }
 
