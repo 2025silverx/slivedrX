@@ -21,7 +21,7 @@ h1, h2 {
 /* Sidebar Styles */
 /* Sidebar styles */
 .sidebar {
-    width: 200px;
+    width: 250px;
     background-color: #007bff;
     color: white;
     padding: 20px;
@@ -67,8 +67,8 @@ h1, h2 {
 }
 /* Main Content Styles */
 .main-content {
-    margin-left: 250px; /* Sidebar width */
-    padding: 20px;
+/*     margin-left: 250px; /* Sidebar width */
+    padding: 20px; */
     flex: 1;
     background-color: #ecf0f1;
     min-height: 100vh;
