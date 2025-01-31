@@ -24,7 +24,7 @@
 
     <div class="main-content">
         <h1>Users</h1>
-        <button onclick="addUser()" class="add-user-btn">Add User</button>
+        <button onclick="fetchUsers()" class="add-user-btn">Add User</button>
         <table class="full-width-table">
             <thead>
                 <tr>
@@ -40,33 +40,16 @@
             </thead>
             <tbody id="userTable">
                 <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>••••••••</td>
-                    <td>$1500</td>
-                    <td><button class="status-btn active" onclick="toggleStatus(this)">Active</button></td>
-                    <td>Verified</td>
-                    <td>
-                        <button class="action-btn view" onclick="viewUser(1)">View</button>
-                        <button class="action-btn edit" onclick="editUser(1)">Edit</button>
-                        <button class="action-btn delete" onclick="deleteUser(1)">Delete</button>
-                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><h3>Loading...</h3></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>••••••••</td>
-                    <td>$2200</td>
-                    <td><button class="status-btn inactive" onclick="toggleStatus(this)">Inactive</button></td>
-                    <td>Unverified</td>
-                    <td>
-                        <button class="action-btn view" onclick="viewUser(2)">View</button>
-                        <button class="action-btn edit" onclick="editUser(2)">Edit</button>
-                        <button class="action-btn delete" onclick="deleteUser(2)">Delete</button>
-                    </td>
-                </tr>
+              
             </tbody>
         </table>
 
@@ -84,59 +67,6 @@
         </div>
     </div>
 
-    <script>
-        function addUser() {
-            alert('Add User button clicked.');
-        }
-
-        function viewUser(id) {
-            alert(`Viewing details for User ID: ${id}`);
-        }
-
-        function editUser(id) {
-            const name = document.getElementById('edit-name');
-            const email = document.getElementById('edit-email');
-            const password = document.getElementById('edit-password');
-            const balance = document.getElementById('edit-balance');
-
-            // Mock data for simplicity
-            name.value = `User ${id}`;
-            email.value = `user${id}@example.com`;
-            password.value = 'examplePassword'; // Display the actual password
-            balance.value = 1500;
-
-            // Show the form
-            document.getElementById('edit-form-container').style.display = 'block';
-        }
-
-        function deleteUser(id) {
-            const confirmDelete = confirm(`Are you sure you want to delete User ID: ${id}?`);
-            if (confirmDelete) {
-                alert(`User ID: ${id} deleted.`);
-            }
-        }
-
-        function toggleStatus(button) {
-            if (button.classList.contains('active')) {
-                button.classList.remove('active');
-                button.classList.add('inactive');
-                button.textContent = 'Inactive';
-            } else {
-                button.classList.remove('inactive');
-                button.classList.add('active');
-                button.textContent = 'Active';
-            }
-        }
-
-        function closeEditForm() {
-            document.getElementById('edit-form-container').style.display = 'none';
-        }
-
-        document.getElementById('edit-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            alert('Changes saved!');
-            document.getElementById('edit-form-container').style.display = 'none';
-        });
-    </script>
+    <script src="/script.js"></script>
 </body>
 </html>
