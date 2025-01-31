@@ -1,5 +1,8 @@
 // ✅ Login Function
-fetchUsers();
+document.addEventListener("DOMContentLoaded", () => {
+    fetchUsers();
+});
+
 async function validateForm(event) {
     event.preventDefault();
 
