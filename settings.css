@@ -19,46 +19,53 @@ h1, h2 {
 }
 
 /* Sidebar Styles */
-#sidebar-container {
-    position: fixed;
+/* Sidebar styles */
+.sidebar {
     width: 250px;
-    height: 100%;
     background-color: #007bff;
     color: white;
-    padding-top: 20px;
-}
-
-.sidebar {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Remove any margin or padding at the side */
+    margin-right: 0;
 }
 
-.sidebar-logo {
-    width: 100px;
+/* Sidebar heading */
+.sidebar h2 {
     margin-bottom: 20px;
+    text-align: center;
 }
 
+/* Sidebar links */
 .sidebar-links {
     list-style: none;
-    padding: 0;
 }
 
-.sidebar-link {
+.sidebar-links li {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.sidebar-links a {
     text-decoration: none;
     color: white;
-    padding: 10px 20px;
+    font-weight: bold;
     display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    padding: 10px;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
-.sidebar-link:hover {
-    background-color: #3C4A78; /* Lighter bluish hover effect */
+.sidebar-links a:hover {
+    color: #f0f0f0; /* Light gray on hover */
 }
 
+.sidebar-links a:active {
+    color: #ff6347; /* Red color on click */
+}
 /* Main Content Styles */
 .main-content {
     margin-left: 250px; /* Sidebar width */
