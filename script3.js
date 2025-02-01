@@ -102,18 +102,18 @@ function updateReferralStats(data) {
 
 // ✅ Function to update referral performance charts
 function updateReferralCharts(data) {
-    // const ctx1 = document.getElementById("commissionsChart").getContext("2d");
-    // new Chart(ctx1, {
-    //     type: "bar",
-    //     data: {
-    //         labels: ["Total Fund", "Total Profit", "Total Commission"],
-    //         datasets: [{
-    //             label: "Amount in USD",
-    //             data: [data.totalFundAmount, data.totalProfitcredited, data.totalReferralCommission],
-    //             backgroundColor: ["#4CAF50", "#FF9800", "#2196F3"]
-    //         }]
-    //     }
-    // });
+    const ctx1 = document.getElementById("commissionsChart").getContext("2d");
+    new Chart(ctx1, {
+        type: "bar",
+        data: {
+            labels: ["Total Fund", "Total Profit", "Total Commission"],
+            datasets: [{
+                label: "Amount in USD",
+                data: [data.totalFundAmount, data.totalProfitcredited, data.totalReferralCommission],
+                backgroundColor: ["#4CAF50", "#FF9800", "#2196F3"]
+            }]
+        }
+    });
 
     const ctx2 = document.getElementById("referralsChart").getContext("2d");
     new Chart(ctx2, {
