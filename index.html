@@ -39,6 +39,15 @@
             </form>
         </div>
 
+        <!-- Add Fund Section (Amount Input) -->
+        <div id="add-fund-section" style="display: none;">
+            <h3>Add Fund to User</h3>
+            <label for="amount">Enter Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            <button onclick="addFund()">Add Fund</button>
+            <button onclick="cancelAddFund()">Cancel</button>
+        </div>
+
         <!-- User Table -->
         <table class="full-width-table" id="userTable">
             <thead>
@@ -68,17 +77,14 @@
             </tbody>
         </table>
 
-        <!-- Hidden Edit User Form -->
-        <div id="edit-form-container" class="edit-form" style="display: none;">
-            <h2>Edit User</h2>
-            <form id="edit-form">
-                <input type="text" id="edit-name" placeholder="Name" required>
-                <input type="email" id="edit-email" placeholder="Email" required>
-                <input type="text" id="edit-password" placeholder="Password" required>
-                <input type="number" id="edit-balance" placeholder="Balance" required>
-                <button type="submit">Save Changes</button>
-                <button type="button" onclick="closeEditForm()">Cancel</button>
-            </form>
+        <div id="addFundModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAddFundModal()">&times;</span>
+                <h2>Add Fund</h2>
+                <label for="fundAmount">Enter Amount:</label>
+                <input type="number" id="fundAmount" placeholder="Enter amount" required>
+                <button onclick="addFund()">Submit</button>
+            </div>
         </div>
     </div>
 

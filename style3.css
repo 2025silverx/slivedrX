@@ -338,3 +338,57 @@ body {
 }
     
 }
+
+/* Referral Tree Styling */
+.tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.node {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    min-width: 120px;
+    position: relative;
+}
+
+.subtree {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.node::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background: black;
+}
+
+.subtree .node::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: black;
+}
+
+.subtree .node:first-child::before {
+    left: 25%;
+}
+
+/* Referral Statistics Styling */
+
+
+/* Graph Styling */
+

@@ -33,57 +33,28 @@
             <div class="statistics">
                 <div class="stat-box">
                     <h3>Total Referrals</h3>
-                    <p>123</p>
+                    <p id="totalReferrals">Loading...</p>
                 </div>
                 <div class="stat-box">
                     <h3>Successful Sign-ups</h3>
-                    <p>98</p>
+                    <p id="successfulSignups">Loading...</p>
                 </div>
                 <div class="stat-box">
                     <h3>Commissions Earned</h3>
-                    <p>$2,500</p>
+                    <p id="commissionsEarned">Loading...</p>
                 </div>
             </div>
         </section>
+        
 
         <!-- Referral Tree/Network Graph -->
+       
+
         <section class="referral-tree">
             <h2>Referral Tree</h2>
-            <div id="networkGraph" class="network-graph">
-                <!-- A simple visualization can be added with a plugin like d3.js or cytoscape.js -->
-                <!-- <p>Referral Tree/Network Graph (Visualization not implemented here)</p> -->
-
-                <div class="tree">
-                    <!-- Root Node -->
-                    <div class="row">
-                        <div class="node">1</div>
-                    </div>
-            
-                    <!-- Second Level -->
-                    <div class="row">
-                        <div class="node" style="margin-right: 100px; position: relative;">
-                            2
-                            <div class="line line-left"></div>
-                        </div>
-                        <div class="node" style="margin-left: 100px; position: relative;">
-                            3
-                            <div class="line line-right"></div>
-                        </div>
-                    </div>
-            
-                    <!-- Third Level -->
-                    <div class="row">
-                        <div class="node" style="margin-right: 50px;">4</div>
-                        <div class="node" style="margin-left: 50px;">5</div>
-                        <div class="node" style="margin-right: 50px;">6</div>
-                        <div class="node" style="margin-left: 50px;">7</div>
-                    </div>
-                </div>
-
-
-
-            </div>
+            <div id="networkGraph" class="network-graph"></div>
         </section>
+        
 
         <!-- Referral Performance Graphs -->
         <section class="graphs">
@@ -103,6 +74,7 @@
                 </div>
             </div>
         </section>
+        
     </div>
 
     <script src="script3.js"></script>

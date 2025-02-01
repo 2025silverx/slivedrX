@@ -78,14 +78,12 @@ function populateUserTable(users) {
     const userTableBody = document.getElementById("userTableBody"); // Target the table body
     userTableBody.innerHTML = ""; // Clear the table body before adding new rows
 
-    // Iterate over the users array to populate the table
     users.forEach((user, index) => {
         const statusClass = user.active ? "active" : "inactive";
         const statusText = user.active ? "Active" : "Inactive";
         const verificationStatus = user.isBlocked ? "Unverified" : "Verified";
         const balance = user.rewards || 0; 
 
-        // Create a new row for each user
         const row = `
             <tr>
                 <td>${index + 1}</td>
@@ -99,6 +97,7 @@ function populateUserTable(users) {
                     <button class="action-btn view" onclick="viewUser('${user._id}')">View</button>
                     <button class="action-btn edit" onclick="editUser('${user._id}', '${user.name}', '${user.email}', '${balance}')">Edit</button>
                     <button class="action-btn delete" onclick="deleteUser('${user._id}')">Delete</button>
+                    <button  onclick="showAddFundModal('${user._id}')">Add Found</button>
                 </td>
             </tr>
         `;
@@ -151,7 +150,7 @@ async function deleteUser(userId) {
 
         try {
             const response = await fetch(`https://wallet-seven-fawn.vercel.app/api/v1/users/blockuser/${userId}`, {
-                method: "PATCH",
+                method: "DELETE",
                 headers: {
                     "token": token,
                     "Content-Type": "application/json",
@@ -172,6 +171,97 @@ async function deleteUser(userId) {
     }
 }
 
+// ✅ Show Add Fund Modal
+function showAddFundModal(userId) {
+    document.getElementById("addFundModal").style.display = "block";
+    localStorage.setItem("currentUserId", userId);
+}
+
+// ✅ Close Modal
+function closeAddFundModal() {
+    document.getElementById("addFundModal").style.display = "none";
+}
+
+// ✅ Add Fund Function
+// async function addFund() {
+//     const userId = localStorage.getItem("currentUserId");
+//     const amount = document.getElementById("fundAmount").value;
+
+//     if (!userId || !amount) {
+//         alert("User ID and Amount are required!");
+//         return;
+//     }
+
+//     const token = localStorage.getItem("authToken");
+
+//     try {
+//         const response = await fetch("https://wallet-seven-fawn.vercel.app/api/v1/transaction/addfund/admin", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//                 "token": token
+//             },
+//             body: JSON.stringify({
+//                 UserId: userId,
+//                 amount: parseFloat(amount)
+//             })
+//         });
+
+//         const result = await response.json();
+//         if (result.status) {
+//             alert("Fund Added Successfully!");
+//             closeAddFundModal(); // Hide Popup
+//         } else {
+//             alert("Failed to Add Fund: " + result.message);
+//         }
+//     } catch (error) {
+//         console.error("Error while adding fund:", error);
+//     }
+// }
+
+// ✅ Add Fund Function (Sending Amount as Number)
+async function addFund() {
+    const userId = localStorage.getItem("currentUserId");
+    const amount = document.getElementById("fundAmount").value;
+
+    // ✅ Convert amount to number
+    const numericAmount = parseFloat(amount);
+
+    if (!userId || isNaN(numericAmount) || numericAmount <= 0) {
+        alert("Please enter a valid amount!");
+        return;
+    }
+
+    const token = localStorage.getItem("authToken");
+
+    try {
+        const response = await fetch("https://wallet-seven-fawn.vercel.app/api/v1/transaction/addfund/admin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "token": token
+            },
+            body: JSON.stringify({
+                UserId: userId,
+                amount: numericAmount // ✅ Sending as Number
+            })
+        });
+
+        const result = await response.json();
+        if (result.status) {
+            alert("Fund Added Successfully!");
+            closeAddFundModal(); // Hide Popup
+        } else {
+            alert("Failed to Add Fund: " + result.message);
+        }
+    } catch (error) {
+        console.error("Error while adding fund:", error);
+    }
+}
+
+
+
+
 // Function to show the "Add User" form and hide the user listing
 function showAddUserForm() {
     // Hide the user table
@@ -180,17 +270,13 @@ function showAddUserForm() {
     document.getElementById("add-user-form-container").style.display = "block";
 }
 
-// Function to close the "Add User" form and show the user listing again
 function closeAddUserForm() {
-    // Hide the Add User form
     document.getElementById("add-user-form-container").style.display = "none";
-    // Show the user table
     document.getElementById("userTable").style.display = "table"; 
 }
 
-// Function to handle form submission for adding a user
 async function addUser(event) {
-    event.preventDefault(); // Prevents the form from submitting the default way
+    event.preventDefault(); 
 
     const name = document.getElementById("user-name").value;
     const email = document.getElementById("user-email").value;
@@ -238,13 +324,11 @@ async function addUser(event) {
 
 
 
-// Function to show the "Add User" form and hide the user listing
 function showAddUserForm() {
     document.getElementById("add-user-form-container").style.display = "block";
     document.getElementById("userTable").style.display = "none"; // Hide user table
 }
 
-// Function to close the "Add User" form and show the user listing again
 function closeAddUserForm() {
     document.getElementById("add-user-form-container").style.display = "none";
     document.getElementById("userTable").style.display = "table"; // Show user table
